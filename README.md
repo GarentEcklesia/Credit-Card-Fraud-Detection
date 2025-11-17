@@ -48,12 +48,7 @@ Experience the fraud detection model in action with our interactive web app:
     source venv/bin/activate  # On Windows: venv\Scripts\activate
     ```
 
-3.  **Install dependencies:**
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-4.  **Run the Streamlit app:**
+3.  **Run the Streamlit app:**
     ```bash
     streamlit run app.py
     ```
