@@ -38,7 +38,7 @@ Experience the fraud detection model in action with our interactive web app:
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/GarentEcklesia/Credit-Card-Fraud-Detection.git](https://github.com/GarentEcklesia/Credit-Card-Fraud-Detection.git)
+    git clone https://github.com/GarentEcklesia/Credit-Card-Fraud-Detection
     cd Credit-Card-Fraud-Detection
     ```
 
