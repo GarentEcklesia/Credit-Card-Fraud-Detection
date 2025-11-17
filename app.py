@@ -5,7 +5,7 @@ import joblib
 import plotly.graph_objects as go
 import plotly.express as px
 from datetime import datetime
-from feature_engineer import FeatureEngineer
+from feature_engineer import FeatureEngineer, OutlierHandler
 
 st.set_page_config(
     page_title="Credit Card Fraud Detection",
