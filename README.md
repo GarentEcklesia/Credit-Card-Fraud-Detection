@@ -42,10 +42,9 @@ Experience the fraud detection model in action with our interactive web app:
     cd Credit-Card-Fraud-Detection
     ```
 
-2.  **Create and activate a virtual environment (recommended):**
+2.  **Install dependencies:**
     ```bash
-    python -m venv venv
-    source venv/bin/activate  # On Windows: venv\Scripts\activate
+    pip install -r requirements.txt
     ```
 
 3.  **Run the Streamlit app:**
