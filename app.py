@@ -463,6 +463,10 @@ st.markdown(
     <div style='text-align: center; color: #666; padding: 2rem 0;'>
         <p>🏦 Credit Card Fraud Detection System | Built with Streamlit & Machine Learning</p>
         <p>⚠️ For demonstration purposes only. Always consult with financial security professionals.</p>
+        <p>
+        Garent Ecklesia | Github:
+        <a href="https://github.com/GarentEcklesia" target="_blank">@GarentEcklesia</a>
+        </p>
     </div>
     """,
     unsafe_allow_html=True
