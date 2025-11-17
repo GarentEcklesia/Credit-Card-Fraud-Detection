@@ -48,3 +48,34 @@ class FeatureEngineer(BaseEstimator, TransformerMixin):
         
 
         return X_copy
+
+class OutlierHandler(BaseEstimator, TransformerMixin):
+    """
+    Handle outliers using IQR method.
+    """
+    def __init__(self, method='iqr', threshold=1.5):
+        self.method = method
+        self.threshold = threshold
+        self.bounds = {}
+    
+    def fit(self, X, y=None):
+        numerical_cols = X.select_dtypes(include=[np.number]).columns
+        
+        for col in numerical_cols:
+            Q1 = X[col].quantile(0.25)
+            Q3 = X[col].quantile(0.75)
+            IQR = Q3 - Q1
+            lower_bound = Q1 - self.threshold * IQR
+            upper_bound = Q3 + self.threshold * IQR
+            self.bounds[col] = (lower_bound, upper_bound)
+        
+        return self
+    
+    def transform(self, X):
+        X_copy = X.copy()
+        
+        for col, (lower, upper) in self.bounds.items():
+            X_copy[col] = X_copy[col].clip(lower=lower, upper=upper)
+        
+        return X_copy
+
