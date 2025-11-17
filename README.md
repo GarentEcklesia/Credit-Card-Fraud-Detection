@@ -6,7 +6,7 @@ An end-to-end machine learning project to detect fraudulent credit card transact
 
 Experience the fraud detection model in action with our interactive web app:
 
-[**➡️ Click here to launch the Streamlit App**](YOUR_STREAMLIT_APP_URL_HERE)
+[**➡️ Click here to launch the Streamlit App**](https://credit-card-fraud-detection-garent-ecklesia.streamlit.app/)
 
 ## 💡 Features
 
