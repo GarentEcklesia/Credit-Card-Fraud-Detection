@@ -1,3 +1,5 @@
+from sklearn.base import BaseEstimator, TransformerMixin
+
 class FeatureEngineer(BaseEstimator, TransformerMixin):
     """
     Custom transformer to create engineered features.
@@ -44,4 +46,5 @@ class FeatureEngineer(BaseEstimator, TransformerMixin):
             (X_copy['distance_from_home'] > 100)
         ).astype(int)
         
+
         return X_copy
