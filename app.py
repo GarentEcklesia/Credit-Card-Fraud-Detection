@@ -429,62 +429,6 @@ with tab3:
             columns=['Parameter', 'Value']
         )
         st.dataframe(params_df, use_container_width=True, hide_index=True)
-
-    st.markdown("---")
-    st.subheader("🎯 Feature Importance")
-    
-    try:
-        classifier = model_package['pipeline'].named_steps['classifier']
-        
-        if hasattr(classifier, 'feature_importances_'):
-            importances = classifier.feature_importances_
-            
-            feature_engineer = model_package['pipeline'].named_steps['feature_engineer']
-            sample_data = pd.DataFrame([{col: 0 for col in model_package['feature_names']}])
-            engineered_features = feature_engineer.transform(sample_data)
-            feature_names = engineered_features.columns.tolist()
-            
-            importance_df = pd.DataFrame({
-                'Feature': feature_names[:len(importances)],
-                'Importance': importances
-            }).sort_values('Importance', ascending=False)
-            
-            fig = px.bar(
-                importance_df.head(15),
-                x='Importance',
-                y='Feature',
-                orientation='h',
-                title='Top 15 Most Important Features',
-                color='Importance',
-                color_continuous_scale='Viridis'
-            )
-            fig.update_layout(height=500)
-            st.plotly_chart(fig, use_container_width=True)
-            
-        elif hasattr(classifier, 'coef_'):
-            coefficients = abs(classifier.coef_[0])
-            
-            coef_df = pd.DataFrame({
-                'Feature': model_package['feature_names'],
-                'Coefficient': coefficients
-            }).sort_values('Coefficient', ascending=False)
-            
-            fig = px.bar(
-                coef_df.head(15),
-                x='Coefficient',
-                y='Feature',
-                orientation='h',
-                title='Top 15 Most Important Features (Absolute Coefficients)',
-                color='Coefficient',
-                color_continuous_scale='Viridis'
-            )
-            fig.update_layout(height=500)
-            st.plotly_chart(fig, use_container_width=True)
-        else:
-            st.info("Feature importance not available for this model type.")
-    
-    except Exception as e:
-        st.warning(f"Could not extract feature importance: {str(e)}")
     
     st.markdown("---")
     st.subheader("💡 Key Insights")
